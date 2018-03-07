@@ -99,7 +99,7 @@ server.on('published', async (packet, client) => {
         payload.metrics.forEach(metric => {
           try {
             Metric.create(agent.uuid, metric)
-                   .then(() => debug(`Metric ${metric.id} saved on agent ${agent.uuid}`))
+                   .then((m) => debug(`Metric ${m.id} saved on agent ${agent.uuid}`))
                    .catch(handleError)
           } catch (e) {
             return handleError(e)
